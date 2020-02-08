@@ -15,10 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UpCricle"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_up_cricle"
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity
             android:name=".CircleActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_circle"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

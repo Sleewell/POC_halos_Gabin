@@ -20,4 +20,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CircleActivity::class.java)
         startActivity(intent)
     }
+    fun UpCircle(v: View) {
+        val intent = Intent(this, UpCricle::class.java)
+        startActivity(intent)
+    }
 }

@@ -6,4 +6,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_circle">CircleActivity</string>
+
+    <string name="title_activity_up_cricle">UpCricle</string>
 </resources>

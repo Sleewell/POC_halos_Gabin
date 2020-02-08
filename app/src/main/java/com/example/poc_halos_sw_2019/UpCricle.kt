@@ -9,15 +9,15 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.provider.Settings
 import android.view.View
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_circle.*
-
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-class CircleActivity : AppCompatActivity() {
+class UpCricle : AppCompatActivity() {
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         fullscreen_content.systemUiVisibility =
@@ -48,15 +48,25 @@ class CircleActivity : AppCompatActivity() {
     private val timer = object: CountDownTimer(30000, 100) {
 
         override fun onTick(millisUntilFinished: Long) {
-            if (brightnessup)
+            var y = findViewById<ImageView>(R.id.halo).height
+            var x = findViewById<ImageView>(R.id.halo).width
+            if (brightnessup) {
                 brightness += 5
-            else
+                y += 20
+                x += 20
+            } else {
                 brightness -= 5
+                y -= 20
+                x -= 20
+            }
             if (brightness > 100)
                 brightnessup = false
             else if (brightness <= 0)
                 brightnessup = true
             Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
+            findViewById<ImageView>(R.id.halo).getLayoutParams().height = y
+            findViewById<ImageView>(R.id.halo).layoutParams.width = x
+            findViewById<ImageView>(R.id.halo).requestLayout()
         }
         override fun onFinish() {}
     }

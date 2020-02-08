@@ -10,27 +10,41 @@
         android:id="@+id/fullscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginBottom="331dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginBottom="281dp"
         android:onClick="start"
         android:text="Fullscreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleact" />
+        app:layout_constraintTop_toBottomOf="@+id/upCircle" />
 
     <Button
         android:id="@+id/circleact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="285dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="62dp"
         android:onClick="circleact"
         android:text="CircleAct"
-        app:layout_constraintBottom_toTopOf="@+id/fullscreen"
+        app:layout_constraintBottom_toTopOf="@+id/upCircle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/upCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="84dp"
+        android:onClick="UpCircle"
+        android:text="Upcircle"
+        app:layout_constraintBottom_toTopOf="@+id/fullscreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleact" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
