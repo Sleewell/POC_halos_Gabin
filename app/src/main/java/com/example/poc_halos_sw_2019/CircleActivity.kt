@@ -1,20 +1,25 @@
 package com.example.poc_halos_sw_2019
 
 import android.content.Intent
-import android.media.audiofx.BassBoost
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.provider.Settings
 import android.view.View
-import android.widget.RelativeLayout
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.activity_fullscreen.*
+import kotlinx.android.synthetic.main.activity_circle.*
 
-class FullscreenActivity : AppCompatActivity() {
+/**
+ * An example full-screen activity that shows and hides the system UI (i.e.
+ * status bar and navigation/system bar) with user interaction.
+ */
+class CircleActivity : AppCompatActivity() {
     private val mHideHandler = Handler()
     private val mHidePart2Runnable = Runnable {
         fullscreen_content.systemUiVisibility =
@@ -57,11 +62,10 @@ class FullscreenActivity : AppCompatActivity() {
         }
         override fun onFinish() {}
     }
-
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fullscreen)
+        setContentView(R.layout.activity_circle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mVisible = true
         fullscreen_content.setOnClickListener { toggle() }
@@ -71,7 +75,7 @@ class FullscreenActivity : AppCompatActivity() {
             Settings.System.putInt(this.contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
         } else {
             val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
-            intent.setData(Uri.parse("package:com.example.poc_halos_sw_2019"))
+            intent.data = Uri.parse("package:com.example.poc_halos_sw_2019")
             startActivity(intent)
         }
         timer.start()
@@ -120,8 +124,8 @@ class FullscreenActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val AUTO_HIDE = true
-        private val AUTO_HIDE_DELAY_MILLIS = 3000
-        private val UI_ANIMATION_DELAY = 300
+        private const val AUTO_HIDE = true
+        private const val AUTO_HIDE_DELAY_MILLIS = 3000
+        private const val UI_ANIMATION_DELAY = 300
     }
 }
